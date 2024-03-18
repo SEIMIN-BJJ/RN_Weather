@@ -22,7 +22,7 @@ export default function App() {
         const location = await Location.reverseGeocodeAsync({ latitude, longitude }, { useGoogleMaps: false });
         setCity(location[0].city);
         const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&exclude=alerts&appid=${API_KEY}&units=metric`
+            `https://api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}`
         );
         const json = await response.json();
         console.log(json);
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         fontSize: 178,
     },
     description: {
-        marginTop: -30,
+        marginTop: -20,
         fontSize: 60,
     },
     tinyText: {
