@@ -36,7 +36,8 @@ export default function App() {
             `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=alerts&appid=${API_KEY}&units=metric`
         );
         const json = await response.json();
-        console.log(json.weather);
+        setDays(json.weather);
+        // API 무료 가져와야함 오픈웨더 돈쓰라함 확인해봐야함
     };
     useEffect(() => {
         getWeather();
